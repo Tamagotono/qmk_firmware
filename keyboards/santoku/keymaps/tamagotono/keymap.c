@@ -96,11 +96,11 @@ void oled_task_user(void) {
                 oled_write_ln_P(PSTR(""), false);
                 break;
             case 2:
-                oled_write_ln_P(PSTR(" Open&Shut Case "), true);
+                oled_write_ln_P(PSTR(" Open&Shut Case"), true);
                 oled_write_ln_P(PSTR(""), false);
-                oled_write_ln_P(PSTR("|   ( { [ <"), false);
-                oled_write_ln_P(PSTR("|   ) } ] >"), false);
-                oled_write_ln_P(PSTR("| - _ + = . `"), false);
+                oled_write_ln_P(PSTR("    |   ( { [ <"), false);
+                oled_write_ln_P(PSTR("    |   ) } ] >"), false);
+                oled_write_ln_P(PSTR("    | - _ + = . `"), false);
                 oled_write_ln_P(PSTR(""), false);
                 oled_write_ln_P(PSTR(""), false);
                 break;
@@ -116,19 +116,19 @@ void oled_task_user(void) {
             case 4:
                 oled_write_ln_P(PSTR(" Top Shelf "), true);
                 oled_write_ln_P(PSTR(""), false);
-                oled_write_ln_P(PSTR("`!@#$% | ^&*()/"), false);
-                oled_write_ln_P(PSTR(" 12345 | 67890."), false);
-                oled_write_ln_P(PSTR("F12345 | 78910="), false);
+                oled_write_ln_P(PSTR("   `!@#$% | ^&*()/"), false);
+                oled_write_ln_P(PSTR("    12345 | 67890."), false);
+                oled_write_ln_P(PSTR("   F12345 | 78910="), false);
                 oled_write_ln_P(PSTR(""), false);
                 oled_write_ln_P(PSTR(""), false);
                 break;
             case 5:
                 oled_write_ln_P(PSTR(" 10key FTW! "), true);
                 oled_write_ln_P(PSTR(""), false);
-                oled_write_ln_P(PSTR("| 7 8 9 + *"), false);
-                oled_write_ln_P(PSTR("| 4 5 6 - /"), false);
-                oled_write_ln_P(PSTR("| 1 2 3 = "), false);
-                oled_write_ln_P(PSTR("|  Ent 0"), false);
+                oled_write_ln_P(PSTR("    | 7 8 9 + *"), false);
+                oled_write_ln_P(PSTR("    | 4 5 6 - /"), false);
+                oled_write_ln_P(PSTR("    | 1 2 3 = "), false);
+                oled_write_ln_P(PSTR("    |  Ent 0"), false);
                 oled_write_ln_P(PSTR(""), false);
                 break;
             case 6:
