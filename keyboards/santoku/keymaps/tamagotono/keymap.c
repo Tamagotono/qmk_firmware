@@ -82,7 +82,7 @@ void oled_task_user(void) {
                 oled_write_ln_P(PSTR(""), false);
                 oled_write_ln_P(PSTR("`   qwfpg | jluy;\\"), false);
                 oled_write_ln_P(PSTR("Sh  arstd | hneio'"), false);
-                oled_write_ln_P(PSTR("Ct  ;qcvb | km,./Es"), false);
+                oled_write_ln_P(PSTR("Ct  zxcvb | km,./Es"), false);
                 oled_write_ln_P(PSTR("Ta Sp Del | Bk Ent "), false);
                 oled_write_ln_P(PSTR("L4 Sp L5  | L1 Sh L2"), false);
                 break;
