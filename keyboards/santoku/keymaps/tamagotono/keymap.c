@@ -53,79 +53,102 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef OLED_ENABLE
 void oled_task_user(void) {
-	// Vanity Text
-	static bool show_vanity_text = true;
-	if (show_vanity_text) {
-		oled_write_ln_P(PSTR("  Santoku Keyboard"), false);
-		oled_write_ln_P(PSTR("       by Tye"), false);
-		oled_write_ln_P(PSTR(""), false);
-		oled_write_ln_P(PSTR("    Hello, Tamagotono."), false);
-		if (timer_read() > 7500) {
-			show_vanity_text = false;
-		}
-	}
-	else {
-		uint8_t wpm = get_current_wpm();
-		if (wpm < 20) {
-			oled_write("      ", false);
-		}
-		else {
-			char wpm_display[9];
-			sprintf(wpm_display, "WPM:%d ", get_current_wpm());
-			oled_write(wpm_display, false);
-		}
+    // Vanity Text
+    static bool show_vanity_text = true;
+    if (show_vanity_text) {
+        oled_write_ln_P(PSTR("  Santoku Keyboard"), false);
+        oled_write_ln_P(PSTR("       by Tye"), false);
+        oled_write_ln_P(PSTR(""), false);
+        oled_write_ln_P(PSTR("  Hello, Tamagotono!"), false);
+        if (timer_read() > 7500) {
+            show_vanity_text = false;
+        }
+    }
+    else {
+        uint8_t wpm = get_current_wpm();
+        if (wpm < 20) {
+            oled_write("      ", false);
+        }
+        else {
+            char wpm_display[9];
+            sprintf(wpm_display, "WPM:%d ", get_current_wpm());
+            oled_write(wpm_display, false);
+        }
 
-		// Host Keyboard Layer Status
-		switch (get_highest_layer(layer_state)) {
-			case 0:
-				oled_write_P(PSTR("Big Mac\n"), false);
-				oled_write_ln_P(PSTR(""), false);
-				oled_write_ln_P(PSTR("`   qwfpg | jluy;\\"), false);
-				oled_write_ln_P(PSTR("Sh  arstd | hneio'"), false);
-				oled_write_ln_P(PSTR("Ct  ;qcvb | km,./Es"), false);
-				oled_write_ln_P(PSTR("Ta Sp Del | Bk Ent "), false);
-				oled_write_ln_P(PSTR("L4 Sp L5  | L1 Sh L2"), false);
-				break;
-			case 1:
-				oled_write_P(PSTR("Get around!\n"), false);
-				oled_write_ln_P(PSTR(""), false);
-				oled_write_ln_P(PSTR("| Hm PgU PgD End"), false);
-				oled_write_ln_P(PSTR("| <  ^   v   >  Bt1"), false);
-				oled_write_ln_P(PSTR("| M< M^  Mv  M> Bt2"), false);
-				break;
-			case 2:
-				oled_write_P(PSTR("Open And Shut Case\n"), true);
-				oled_write_ln_P(PSTR(""), false);
-				oled_write_ln_P(PSTR("|   ( { [ <"), false);
-				oled_write_ln_P(PSTR("|   ) } ] >"), false);
-				oled_write_ln_P(PSTR("| - _ + = . `"), false);
-				break;
-			case 3:
-				oled_write_P(PSTR("No keys for you!\n"), true);
-				break;
-			case 4:
-				oled_write_P(PSTR("Top Shelf\n"), true);
-				oled_write_ln_P(PSTR(""), false);
-				oled_write_ln_P(PSTR("`!@#$% | ^&*()/"), false);
-				oled_write_ln_P(PSTR(" 12345 | 67890."), false);
-				oled_write_ln_P(PSTR("F12345 | 78910="), false);
-				break;
-			case 5:
-				oled_write_P(PSTR("10key FTW!"), true);
-				oled_write_ln_P(PSTR(""), false);
-				oled_write_ln_P(PSTR("| 789+*"), false);
-				oled_write_ln_P(PSTR("| 456-/"), false);
-				oled_write_ln_P(PSTR("| 123="), false);
-				oled_write_ln_P(PSTR("| Ent 0"), false);
-				break;
-			case 6:
-				oled_write_P(PSTR("No keys for you!\n"), true);
-				break;
-			default:
-				oled_write_ln_P(PSTR("This is not the\n"), false);
-				oled_write_ln_P(PSTR("layer you're\n"), false);
-				oled_write_ln_P(PSTR("looking for\n"), false);
-		}
-	}
+        // Host Keyboard Layer Status
+        switch (get_highest_layer(layer_state)) {
+            case 0:
+                oled_write_ln_P(PSTR("Big Mac"), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR("`   qwfpg | jluy;\\"), false);
+                oled_write_ln_P(PSTR("Sh  arstd | hneio'"), false);
+                oled_write_ln_P(PSTR("Ct  ;qcvb | km,./Es"), false);
+                oled_write_ln_P(PSTR("Ta Sp Del | Bk Ent "), false);
+                oled_write_ln_P(PSTR("L4 Sp L5  | L1 Sh L2"), false);
+                break;
+            case 1:
+                oled_write_ln_P(PSTR(" Get around! "), true);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR("| Hm PgU PgD End"), false);
+                oled_write_ln_P(PSTR("| <  ^   v   >  Bt1"), false);
+                oled_write_ln_P(PSTR("| M< M^  Mv  M> Bt2"), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                break;
+            case 2:
+                oled_write_ln_P(PSTR(" Open&Shut Case "), true);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR("|   ( { [ <"), false);
+                oled_write_ln_P(PSTR("|   ) } ] >"), false);
+                oled_write_ln_P(PSTR("| - _ + = . `"), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                break;
+            case 3:
+                oled_write_ln_P(PSTR("No keys for you!"), true);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                break;
+            case 4:
+                oled_write_ln_P(PSTR(" Top Shelf "), true);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR("`!@#$% | ^&*()/"), false);
+                oled_write_ln_P(PSTR(" 12345 | 67890."), false);
+                oled_write_ln_P(PSTR("F12345 | 78910="), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                break;
+            case 5:
+                oled_write_ln_P(PSTR(" 10key FTW! "), true);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR("| 7 8 9 + *"), false);
+                oled_write_ln_P(PSTR("| 4 5 6 - /"), false);
+                oled_write_ln_P(PSTR("| 1 2 3 = "), false);
+                oled_write_ln_P(PSTR("|  Ent 0"), false);
+                oled_write_ln_P(PSTR(""), false);
+                break;
+            case 6:
+                oled_write_ln_P(PSTR("No keys for you!"), true);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                break;
+            default:
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR("This is not the"), false);
+                oled_write_ln_P(PSTR("layer you're"), false);
+                oled_write_ln_P(PSTR("looking for"), false);
+                oled_write_ln_P(PSTR(""), false);
+                oled_write_ln_P(PSTR(""), false);
+        }
+    }
 }
 #endif
