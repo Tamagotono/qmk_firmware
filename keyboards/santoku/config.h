@@ -43,7 +43,7 @@
 // Configure rotary encoder
 #define ENCODERS_PAD_A { D4 }
 #define ENCODERS_PAD_B { D7 }
-#define ENCODER_RESOLUTION 2
+#define ENCODER_RESOLUTION 1
 
 #ifdef PS2_MOUSE_ENABLE
 //#define PS2_MOUSE_STREAMING_MODE TRUE
@@ -148,7 +148,7 @@
 //#define MATRIX_HAS_GHOST
 
 /* Set 0 if debouncing isn't needed */
-#define DEBOUNCE    5
+#define DEBOUNCE    3
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 //#define LOCKING_SUPPORT_ENABLE
@@ -171,5 +171,5 @@
 //#define NO_ACTION_LAYER
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
-//#define NO_ACTION_MACRO
-//#define NO_ACTION_FUNCTION
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
